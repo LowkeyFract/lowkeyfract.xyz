@@ -103,7 +103,7 @@ function initMusicPlayer() {
                     <i class="fas fa-step-backward"></i>
                 </button>
                 <button class="music-control play-pause" onclick="togglePlayPause()" id="playPauseBtn">
-                    <i class="fas fa-pause"></i>
+                    <i class="fas fa-play"></i>
                 </button>
                 <button class="music-control next" onclick="nextTrack()">
                     <i class="fas fa-step-forward"></i>
@@ -155,7 +155,8 @@ function autoStartMusic() {
             console.log('a inceput');
         }).catch(() => {
             isMusicPlaying = false;
-            document.getElementById('playPauseBtn').innerHTML = '<i class="fas fa-pause"></i>';
+            // Autoplay blocked or failed — show play icon so user can start manually
+            document.getElementById('playPauseBtn').innerHTML = '<i class="fas fa-play"></i>';
             setTimeout(() => {
                 const retryPromise = musicAudio.play();
                 if (retryPromise !== undefined) {
@@ -273,7 +274,7 @@ function makestar() {
 }
 
 function showpage(page) {
-    const pages = ['home', 'contact'];
+    const pages = ['home', 'portfolio', 'contact'];
     const links = document.querySelectorAll('.nav-link');
 
     pages.forEach(p => {

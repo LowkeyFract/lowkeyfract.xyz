@@ -384,6 +384,78 @@ textarea:focus {
     font-weight: 500;
 }
 
+/* Lock screen styles */
+.lockscreen {
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0.95), rgba(0,0,0,0.85));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.lock-content {
+    text-align: center;
+    color: #cfcfcf;
+    font-family: 'Inter', sans-serif;
+}
+.click-text {
+    font-size: 13px;
+    letter-spacing: 1px;
+    color: #e6e6e6;
+    padding: 12px 18px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.06);
+    backdrop-filter: blur(4px);
+    cursor: pointer;
+    user-select: none;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.6);
+    animation: pulse 1.6s infinite ease-in-out;
+}
+
+/* Site lockscreen (English, blurred background) */
+.site-lockscreen {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 99999;
+    background: rgba(6,6,6,0.6);
+    backdrop-filter: blur(6px) saturate(1.05);
+    -webkit-backdrop-filter: blur(6px) saturate(1.05);
+    transition: opacity 0.45s ease, transform 0.45s ease;
+}
+.site-lockscreen-inner {
+    text-align: center;
+    color: #fff;
+    padding: 24px 28px;
+    border-radius: 12px;
+    max-width: 90%;
+    pointer-events: auto;
+}
+.lock-title {
+    font-family: 'Space Grotesk', Inter, system-ui, sans-serif;
+    font-size: 34px;
+    margin-bottom: 10px;
+    letter-spacing: 0.6px;
+    color: #fff;
+}
+.lock-hint {
+    appearance: none;
+    border: 1px solid rgba(255,255,255,0.08);
+    background: rgba(255,255,255,0.03);
+    color: #ddd;
+    padding: 10px 14px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 13px;
+}
+.lock-hint:focus { outline: 2px solid rgba(88,101,242,0.4); }
+
+
+
 @media (max-width: 768px) {
     .music-player-card {
         margin-bottom: 16px;
@@ -883,7 +955,7 @@ textarea:focus {
     justify-content: center;
     opacity: 1;
     transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1);
-    pointer-events: none;
+    pointer-events: auto;
 }
 
 .wakeup-overlay.fade-out {

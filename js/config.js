@@ -17,6 +17,11 @@
         getDiscordApi: function() {
             return _0x5d3a(_0x4b2c[0]) + this.getUserId();
         },
+
+        getAvatarApi: function() {
+            const baseUrl = _0x5d3a(_0x4b2c[1]) + this.getUserId();
+            return `https://api.allorigins.win/get?url=${encodeURIComponent(baseUrl)}`;
+        },
         
         safeFetch: async function(url, options = {}) {
             const maxRetries = 3;
